@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 34
+    buildToolsVersion "34.0.0"
+
+    defaultConfig {
+        applicationId "com.android.miloratts"
+        minSdkVersion 19
+        targetSdkVersion 34  // 更新到最新
+        versionCode 3
+        versionName "1.2-beta"
+        
+        // 添加矢量图支持（如果需要）
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // 可选：添加版本后缀
+            versionNameSuffix "-release"
+        }
+        
+        debug {
+            // 可选：为调试版本添加后缀
+            versionNameSuffix "-debug"
+            debuggable true
+        }
+    }
+    
+    // 添加编译选项
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    
+    // 添加命名空间（如果使用 Android Gradle Plugin 7.0+）
+    namespace 'com.android.miloratts'
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+}

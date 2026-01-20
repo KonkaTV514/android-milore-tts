@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.miloratts">
+
+    <!-- 权限必须在 application 标签外，并且顺序很重要 -->
+    
+    <!-- 1. 普通权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    
+    <!-- 2. 签名权限（此应用作为TTS服务提供者，不需要请求此权限） -->
+    
+    <!-- 3. 其他权限 -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" 
+        tools:ignore="ProtectedPermissions" />
+    
+    <!-- 4. 针对 Android 13+ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" 
+        android:maxSdkVersion="32" />
+    
+    <!-- 添加 uses-feature 声明 -->
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    
+    <application
+        android:name="com.android.miloratts.MiloraApp"
+        android:label="Milora TTS"
+        android:icon="@drawable/ic_launcher"
+        android:allowBackup="false"
+        android:supportsRtl="true"
+        android:enabled="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="31">
+        
+        <!-- 主设置Activity -->
+        <activity
+            android:name="com.android.miloratts.EngineSettings"
+            android:exported="true"
+            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 检查语音数据Activity -->
+        <activity
+            android:theme="@android:style/Theme.NoDisplay"
+            android:name="com.android.miloratts.CheckVoiceData"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.CHECK_TTS_DATA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 核心TTS服务 -->
+        <service
+            android:label="Milora TTS"
+            android:name="com.android.miloratts.TtsService"
+            android:exported="true"
+            android:isolatedProcess="false"
+            android:settingsActivity="com.android.miloratts.EngineSettings"
+            android:enabled="true"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="android.intent.action.TTS_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.speech.tts"
+                android:resource="@xml/tts_engine" />
+            <!-- 添加服务配置 -->
+            <meta-data
+                android:name="android.speech.tts.compat"
+                android:resource="@xml/tts_engine" />
+        </service>
+        
+        <!-- 开机启动接收器 -->
+        <receiver
+            android:name="com.android.miloratts.BootReceiver"
+            android:exported="false"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        
+    </application>
+</manifest>
