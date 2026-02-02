@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.android.miloratts"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 34  // 更新到最新
         versionCode 3
         versionName "1.2-beta"
