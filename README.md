@@ -21,8 +21,6 @@ A lightweight Android system-wide TTS engine that harnesses the Milora API, offe
 |---------------------|--------------|
 | ![System TTS Settings](screenshots/system_settings.jpg) | ![App Settings](screenshots/app_settings.jpg) |
 
-*Note: Add your actual screenshots to a `screenshots/` folder*
-
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -51,7 +49,6 @@ cd android-milore-tts
 The app allows you to configure cache behavior:
 - **Cache Limit**: Set maximum number of cached audio files (recommended: 10-200)
 - **Clear Cache**: Manually remove all cached files
-- **Clear Data**: Reset all app preferences and cached data
 
 ### API Usage
 This app uses the [Milora API](https://api.milorapart.top/) for speech synthesis. The API is called with:
