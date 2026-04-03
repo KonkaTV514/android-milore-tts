@@ -3,7 +3,7 @@
 A lightweight Android system-wide TTS engine that harnesses the Milora API, offering seamless text-to-speech across any app.
 
 > 💚 **A Note on Service Sustainability**  
-> Milora API is maintained by a student developer who provides 40+ free interfaces at his own expense.  
+> [Milora API](https://api.milorapart.top/) is maintained by a student developer who provides 40+ free interfaces at his own expense.  
 > Please be aware that occasional outages (CDN quota, certificate expiry) may occur due to resource constraints.  
 > If you find this service valuable, consider [supporting Milora](https://ifdian.net/a/libie) to help keep it alive.
 
@@ -98,7 +98,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Milora API](https://api.milorapart.top/) for providing the speech synthesis service
 - Android TTS framework for the system integration capabilities
 - All contributors and users of this project
-
----
-
-**Milora TTS** - Bringing cloud-based speech synthesis to your Android system.
