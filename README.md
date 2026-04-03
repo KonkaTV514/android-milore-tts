@@ -2,6 +2,11 @@
 
 A lightweight Android system-wide TTS engine that harnesses the Milora API, offering seamless text-to-speech across any app.
 
+> 💚 **A Note on Service Sustainability**  
+> Milora API is maintained by a student developer who provides 40+ free interfaces at his own expense.  
+> Please be aware that occasional outages (CDN quota, certificate expiry) may occur due to resource constraints.  
+> If you find this service valuable, consider [supporting Milora](https://ifdian.net/a/libie) to help keep it alive.
+
 [![GitHub License](https://img.shields.io/github/license/KonkaTV514/android-milore-tts)](https://github.com/KonkaTV514/android-milore-tts/blob/main/LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/KonkaTV514/android-milore-tts)](https://github.com/KonkaTV514/android-milore-tts/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/KonkaTV514/android-milore-tts)](https://github.com/KkaTV514/android-milore-tts/issues)
